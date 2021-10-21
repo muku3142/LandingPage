@@ -28,14 +28,36 @@ const sections= document.querySelectorAll('section');
 //Navigation Menu
 const liNode= [];
 const anch=[];
-
+const button_id= document.getElementById('nav-button');
 
 /**
  * End Global Variables
  * --------------------------------------------------------------------------------------------------------
  * Start Helper Functions
  */
-//remove active class from non-target classes
+//activate section
+let callback= entries=> {
+    entries.forEach( (entry)=> {
+        if (entry.isIntersecting) {
+
+            //remove items
+            sections.forEach( (item)=>{
+                if (item.classList.contains("your-active-class")){
+                    item.classList.remove("your-active-class");
+                }
+            });
+            //add active class
+            let activeDataNav= entry.target.getAttribute("data-nav");
+
+            //add new class to active link
+            let activeClass= document.querySelector("[data-nav="+ CSS.escape(activeDataNav) + "]");
+
+            activeClass.classList.add("your-active-class");
+
+        }
+    });
+}
+
 
 
 
@@ -48,7 +70,26 @@ const anch=[];
 
 // build the nav
 //const navigate= document.querySelector('nav');
+const navigate_top= document.querySelector('.navbar__menu');
 const navigate= document.querySelector('#navbar');
+
+//adding a button element
+let nav_button= document.createElement("button");
+nav_button.innerHTML="Navigation Menu";
+nav_button.id= "nav-button";
+navigate_top.insertAdjacentElement('afterbegin',nav_button);
+
+//adding button event listener to toggle show and hide upon click
+nav_button.addEventListener('click', ()=> {
+           var navigateStatus= navigate.style.display;
+            if(navigateStatus === 'none'){
+               navigate.style.display='block';
+            } else {
+                navigate.style.display='none';
+            }
+
+});
+
 
 //for loop to add li elements
 for(let i=0; i<5;i++) {
@@ -71,10 +112,6 @@ for(let i=0; i<5;i++) {
 }
 
 
-
-//Appending the lists using fragments to enhance performance
-//navigate.appendChild(liNode[]);
-
 // Add class 'active' to section when near top of viewport
 let options = {
     root: document.querySelector('#scrollArea'),
@@ -89,27 +126,6 @@ let observer = new IntersectionObserver(callback, options);
 
 // Scroll to anchor ID using scrollTO event
 //Scroll Function
-let callback= entries=> {
-    entries.forEach( (entry)=> {
-        if (entry.isIntersecting) {
-
-            //remove items
-            sections.forEach( (item)=>{
-                if (item.classList.contains("your-active-class")){
-                    item.classList.remove("your-active-class");
-                }
-            });
-            //add active class
-            let activeDataNav= entry.target.getAttribute("data-nav");
-
-            //add new class to active link
-            let activeClass= document.querySelector("[data-nav="+ CSS.escape(activeDataNav) + "]");
-
-            activeClass.classList.add("your-active-class");
-
-        }
-    });
-}
 
 
 /**

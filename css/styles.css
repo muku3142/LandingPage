@@ -95,24 +95,32 @@ section {
 */
 
 #navbar{
-    display: grid;
+    display: block;
     color: #000;
     padding: 8px 6px;
-
     width: 100px;
-    height: 500px;
+    height: 400px;
     text-decoration: none;
     background: #b2bbd0;
 }
 
 #navbar__list{
     display: grid;
-    border: 5px solid green;
+    border: 5px solid #3866ee;
     align-items: center;
-    height: 90px;
+    height: 70px;
     width: 80px;
     color: cadetblue;
+
 }
+#nav-button{
+    border: 10px;
+    display: block;
+    width: 100px;
+    height: 40px;
+
+}
+
 /*
 }
 */
