@@ -59,14 +59,6 @@ let callback= entries=> {
         }
     });
 }
-
-
-
-
-
-
-
-
 /**
  * End Helper Functions
  --------------------------------------------------------------------------------------------------------
@@ -93,7 +85,6 @@ nav_button.addEventListener('click', ()=> {
 
 });
 
-
 //for loop to add li elements
 for(let i=0; i< sectionsLength ;i++) {
     //lists
@@ -103,7 +94,7 @@ for(let i=0; i< sectionsLength ;i++) {
     liNode[i].id="navbar__list" ;
 
     //Adding attribure data-nav to li
-    var att= document.createAttribute("data-nav");
+    let att= document.createAttribute("data-nav");
     att.value= "Section" +i;
     liNode[i].setAttributeNode(att);
     //Adding a class to differentiate navigation items
@@ -117,23 +108,14 @@ for(let i=0; i< sectionsLength ;i++) {
 
     liNode[i].addEventListener('mouseover', (event) => {
 
-            liNode[i].classList.add("your-active-class");
-
+        liNode[i].classList.add("your-active-class");
         setTimeout(() => {liNode[i].classList.remove("your-active-class")}, 500);
 
-
-        //liHighlight();
     });
 
 
-
-
 }
 
-function liHighlight(item){
-    item.classList.add("your-active-class");
-
-}
 // Add class 'active' to section when near top of viewport
 let options = {
     root: document.querySelector('#scrollArea'),
@@ -146,30 +128,9 @@ let observer = new IntersectionObserver(callback, options);
     observer.observe(item);
 });
 
-//Adding navigation items observer
-//
-// let observerLI = new IntersectionObserver(callbackLi, options);
-// liItems.forEach( (LiItem)=> {
-//     observer.observe(liItem);
-// });
-
-// Scroll to anchor ID using scrollTO event
-//Scroll Function
-
-
 /**
  * End Main Functions
  * --------------------------------------------------------------------------------------------------------
- * Begin Events
- *
 
- */
-
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
 
 
