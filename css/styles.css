@@ -249,6 +249,18 @@ section:nth-of-type(3n + 1) .landing__container::after {
 
 }
 
+li.your-active-class {
+    background: rgb(215, 22, 61);
+
+}
+
+/*
+ul li {
+    background: rgb(215, 22, 61);
+
+}
+*/
+
 section.your-active-class .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
